@@ -4,7 +4,7 @@ from datetime import datetime
 
 # API endpoint et clé d'API OpenWeather
 url = "https://api.openweathermap.org/data/2.5/weather"
-api_key = "5d4b0fea341a107ff8647f85d7981506" # Remplacez YOUR_API_KEY par votre clé d'API OpenWeather
+api_key = "5d4b0fea341a107ff8647f85d7981506" 
 
 # Liste des villes françaises
 cities = ["Paris", "Marseille", "Lyon", "Toulouse", "Nice", "Nantes", "Strasbourg", "Montpellier", "Bordeaux", "Lille",
@@ -36,7 +36,6 @@ for city in cities:
     # Traitement des données de la réponse si la requête a réussi
     if response.status_code == 200:
         data = response.json()
-        print(data)
         # Ajout des données à notre dictionnaire
         data_dict["Ville"].append(city)
         data_dict["Température actuelle"].append(data["main"]["temp"])
@@ -62,5 +61,5 @@ df = pd.DataFrame(data_dict)
 df.to_csv("weather_data.csv", index=False)
 
 # Affichage des données
-
+print(df)
 
